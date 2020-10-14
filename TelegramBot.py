@@ -11,7 +11,6 @@ def main():
     updater = Updater(token=token, use_context=True)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler('papel', start))
-    # Start bot
     updater.start_polling()
     updater.idle()
 
@@ -41,8 +40,6 @@ def start(update, context):
             context.bot.send_message(chat_id=update.effective_chat.id, text=message)
         except:
             porcent = ((float(wallet["ask"])) / (float(wallet["previousClose"])) - 1) * 100
-
-            # Sending message
 
             message = f'Nome da empresa: {wallet["shortName"]} \n' \
                       f'Cotação de ontem: {wallet["previousClose"]} \n' \
